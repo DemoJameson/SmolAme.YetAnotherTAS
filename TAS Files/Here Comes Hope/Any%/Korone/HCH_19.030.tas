@@ -1,0 +1,61 @@
+Character 3
+Load 12
+1
+
+ 100,R
+   1
+  99,R
+   1
+ 159,R
+#first jump
+   1,R,U
+  87,R,U
+ 132,R
+ 147,R,U
+  76,R
+   1,R,U
+#sb here
+   1,R,U,D
+ 145,R,U
+ 179,R
+   1,R,U
+   1,R,D
+ 125,R
+   1,R,D
+ 126,R
+#first bb after grav change
+   1,R,D
+ 265,L
+#danger jump after grav change
+   1,L,U
+  63,L
+   1,L,D
+   5,L
+  56
+#first bounce cancel
+   1,U
+ 361
+  42,L
+   1,L,U
+#insta at first hanging platform of first cycle
+   1,L,D
+ 190,L
+   1,L,U
+  22,L
+#first cycle end
+   1,L,D
+ 326,L
+  56,L,U
+ 141,L
+   1,L,U
+   1,L,D
+ 112,L
+#second cycle end
+   1,L,D
+ 351,L
+  11,L,U
+ 114,L
+   1,L,D
+ 217,L
+   1,L,D
+   5

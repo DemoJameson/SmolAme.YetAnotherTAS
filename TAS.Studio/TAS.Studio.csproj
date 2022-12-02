@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net452</TargetFramework>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <LangVersion>default</LangVersion>
+        <AssemblyTitle>TAS.Studio</AssemblyTitle>
+        <Product>TAS.Studio</Product>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <FileVersion>1.0.0.0</FileVersion>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+        <RootNamespace>TAS.Studio</RootNamespace>
+        <Company>TAS.Studio</Company>
+        <PathMap>$(MSBuildProjectDirectory)=TAS.Studio/</PathMap>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ApplicationIcon>GoldBerry.ico</ApplicationIcon>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <Reference Include="Microsoft.VisualBasic" />
+        <Reference Include="System.Deployment" />
+        <Reference Include="System.Windows.Forms" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Compile Update="RichText\AutocompleteMenu.cs">
+            <SubType>Component</SubType>
+        </Compile>
+        <Compile Update="RichText\GoToForm.cs">
+            <SubType>Form</SubType>
+        </Compile>
+        <Compile Update="RichText\GoToForm.Designer.cs">
+            <DependentUpon>GoToForm.cs</DependentUpon>
+        </Compile>
+        <Compile Update="RichText\RichText.cs">
+            <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Update="Studio.cs">
+            <SubType>Form</SubType>
+        </Compile>
+        <Compile Update="Studio.Designer.cs">
+            <DependentUpon>Studio.cs</DependentUpon>
+        </Compile>
+        <EmbeddedResource Update="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+            <SubType>Designer</SubType>
+        </EmbeddedResource>
+        <Compile Update="Properties\Resources.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+            <DesignTime>True</DesignTime>
+        </Compile>
+        <EmbeddedResource Update="RichText\GoToForm.resx">
+            <DependentUpon>GoToForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Update="RichText\RichText.resx">
+            <DependentUpon>RichText.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Studio.resx">
+            <DependentUpon>Studio.cs</DependentUpon>
+            <SubType>Designer</SubType>
+        </EmbeddedResource>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Content Include="GoldBerry.ico" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="GodSharp.Socket" Version="2021.412.3" />
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\TAS.Shared\TAS.Shared.csproj" />
+    </ItemGroup>
+    
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Delete Files="$(TargetDir)$(AssemblyName).exe.config" />
+    </Target>
+</Project>

@@ -1,0 +1,47 @@
+Character 1
+Load 1
+1
+
+ 105,R
+  15,R,U
+ 156,R
+#first gp
+   1,R,U
+   1,R,D
+  24,R
+   1,R,U
+#book 2
+  90,R
+  89,R
+   1,R,U
+   1,R,U,D
+  64,R,U
+  31,U
+  15,L,U
+  60,L
+   1,L,U
+   1,R,U,D
+ 157,R,U
+  33,R
+   4,R,U
+  88,L,U
+  10,L
+   1,L,U
+   1,L,D
+#old diag
+   1,L
+ 152,R
+#danger jump
+   1,R,U
+ 140,R,U
+   1,R,D
+#gp on slide
+   5,R
+ 158,R
+#leaf airtime start
+   2,R,U
+#leaf airtime
+ 101,R,U
+ 234,R
+   1,R,U
+   1,R,D

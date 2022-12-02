@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net35;netstandard2.0</TargetFrameworks>
+        <RootNamespace>TAS.Core</RootNamespace>
+        <LangVersion>default</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <PathMap>$(MSBuildProjectDirectory)=TAS.Core/</PathMap>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="J2i.Net.XInputWrapper">
+        <HintPath>libs\J2i.Net.XInputWrapper.dll</HintPath>
+        <Private>True</Private>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="libs-stripped\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="libs-stripped\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="libs-stripped\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="GodSharp.Socket" Version="2021.412.3" />
+      <PackageReference Condition="'$(TargetFramework)' == 'net35'" Include="Theraot.Core" Version="3.2.11" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TAS.Shared\TAS.Shared.csproj" />
+    </ItemGroup>
+</Project>

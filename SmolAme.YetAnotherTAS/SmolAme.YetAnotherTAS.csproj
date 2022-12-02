@@ -1,0 +1,101 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>TAS mod for Smol Ame</Description>
+        <Version>1.0.0</Version>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <LangVersion>latest</LangVersion>
+        <RestoreAdditionalProjectSources>
+            https://api.nuget.org/v3/index.json;
+            https://nuget.bepinex.dev/v3/index.json
+        </RestoreAdditionalProjectSources>
+        <RootNamespace>SmolAme.YetAnotherTAS</RootNamespace>
+        <PathMap>$(MSBuildProjectDirectory)=SmolAme.YetAnotherTAS/</PathMap>
+        <PackageId>SmolAme.YetAnotherTAS</PackageId>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+        <PackageReference Include="BepInEx.Core" Version="5.*" />
+        <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+        <PackageReference Include="UnityEngine.Modules" Version="2019.3.0" IncludeAssets="compile" />
+        <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.3.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    </ItemGroup>
+
+    <ItemDefinitionGroup>
+        <Reference>
+            <Private>False</Private>
+        </Reference>
+    </ItemDefinitionGroup>
+
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp" Publicize="true">
+            <HintPath>Libs\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.TextMeshPro">
+          <HintPath>Libs\Unity.TextMeshPro.dll</HintPath>
+        </Reference>
+        <Reference Include="GodSharp.Socket">
+            <HintPath>Libs\GodSharp.Socket.dll</HintPath>
+            <Private>True</Private>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="..\TAS.Core\**\*.cs">
+            <Link>Core\%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+        <Compile Remove="..\TAS.Core\Properties\**" />
+        <Compile Remove="..\TAS.Core\obj\**" />
+        <Reference Include="J2i.Net.XInputWrapper">
+            <HintPath>..\TAS.Core\libs\J2i.Net.XInputWrapper.dll</HintPath>
+            <Private>True</Private>
+        </Reference>
+        <Folder Include="Core" />
+        <Compile Remove="Libs\**" />
+        <Compile Condition="'$(Configuration)' == 'Release'" Remove="Components\DisableRunWhenReload.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TAS.Shared\TAS.Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Libs\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Libs\**" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <BuildsDir>$(SolutionDir)Builds\$(PackageId)_v$(Version)</BuildsDir>
+    </PropertyGroup>
+
+    <Target Name="PreBuild" AfterTargets="PreBuildEvent">
+        <Exec Command="xcopy &quot;$(SolutionDir)TAS.Core\libs\&quot; &quot;$(TargetDir)&quot; /E/H/C/I/Y" />
+    </Target>
+
+    <Target Condition="'$(Configuration)' == 'Release'" Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="rd /S /Q &quot;$(BuildsDir)&quot;" />
+        <Exec Command="del &quot;$(BuildsDir).zip&quot;" />
+
+        <Exec Command="xcopy &quot;$(SolutionDir)BepInEx_x86&quot; &quot;$(BuildsDir)\&quot; /E/H/C/I/Y" />
+        <Exec Command="xcopy &quot;$(TargetDir)&quot; &quot;$(BuildsDir)\BepInEx\plugins\$(PackageId)&quot; /E/H/C/I/Y" />
+        <Exec Command="xcopy &quot;$(SolutionDir)TAS.Studio\bin\Release\net452&quot; &quot;$(BuildsDir)\TAS.Studio&quot; /E/H/C/I/Y" />
+        <Exec Command="rd /S /Q &quot;$(BuildsDir)\TAS.Studio\TAS Files&quot;" />
+        <Exec Command="xcopy &quot;$(SolutionDir)SmolTAS.Converter\bin\Release\SmolTAS.Converter.exe&quot; &quot;$(BuildsDir)\TAS.Studio&quot; /E/H/C/I/Y" />
+        <Exec Command="xcopy &quot;$(SolutionDir)TAS Files&quot; &quot;$(BuildsDir)\TAS.Studio\TAS Files&quot; /E/H/C/I/Y" />
+        <Exec Command="powershell -Command Compress-Archive -Path '$(BuildsDir)\*' -DestinationPath '$(BuildsDir).zip' -Force" />
+    </Target>
+</Project>
