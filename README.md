@@ -8,7 +8,8 @@ Simple TAS Tools for the game [Smol Ame](https://moocow-games.itch.io/smol-ame).
 1. [Download](https://github.com/DemoJameson/SmolAme.YetAnotherTAS/releases) the zip then unzip all files into the game folder. ([SmolAme.Trainer](https://github.com/DemoJameson/SmolAme.Trainer) is already included in the zip file)
 2. Run `Smol Ame.exe` will start the game with tas plugin now.
 3. Press `F2` show settings.
-4. Run `TAS.Stuido.exe` write tas.
+4. Run `TAS.Stuido.exe` write tas. If the game does not respond when frame advancing,
+you can still take control of the tas play in `TAS.Studio.exe`.
 
 ### Convert SmolTAS Input File
 Just drag and drop the folder or file onto `TAS.Studio/SmolTAS.Converter.exe`.
@@ -89,7 +90,7 @@ Various commands exist to facilitate TAS playback.
 
 ## Playback of Input File
 ### Controller
-While in game
+While in game or TAS.Studio
 - Playback/Stop: Right Stick
 - Restart: Left Stick
 - When Playing Back
@@ -101,7 +102,7 @@ While in game
         - Frame step continuously: Right Stick X+
 
 ### Keyboard
-While in game
+While in game or TAS.Studio
 - Playback/Stop: RightControl
 - Restart: =
 - Faster/Slower Playback: RightShift / Alt+LeftShift
@@ -111,7 +112,7 @@ While in game
     - Continue at normal speed: ]
     - Frame step continuously: RightShift
 
-## TAS Studio
+## TAS.Studio
 Can be used instead of notepad or similar for easier editing of the TAS file. It is bundled with the TAS tools
 
 ### Controls
