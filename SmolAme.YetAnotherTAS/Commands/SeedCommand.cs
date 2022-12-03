@@ -1,5 +1,4 @@
-﻿using SmolAme.YetAnotherTAS.Components;
-using SmolAme.YetAnotherTAS.Components.Helpers;
+﻿using SmolAme.YetAnotherTAS.Components.Helpers;
 using TAS.Core.Input.Commands;
 using TAS.Core.Utils;
 
@@ -9,8 +8,8 @@ public class SeedCommand : PluginComponent {
     public static string Seed => seed ?? "";
     private static string seed;
 
-    [TasCommand("Seed", LegalInMainGame = false)]
-    private static void Health(string[] args) {
+    [TasCommand("Seed", LegalInMainGame = true)]
+    private static void SetSeed(string[] args) {
         if (args.IsEmpty()) {
             return;
         }
