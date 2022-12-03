@@ -1,7 +1,10 @@
 # SmolAme.YetAnotherTAS
+![Settings](Screenshots/Settings.png)
 Simple TAS Tools for the game [Smol Ame](https://moocow-games.itch.io/smol-ame).
 
 ## How to use
+![Installation](Screenshots/Installation.png)
+![TAS.Studio](Screenshots/TAS.Studio.png)
 1. [Download](https://github.com/DemoJameson/SmolAme.YetAnotherTAS/releases) the zip then unzip all files into the game folder. ([SmolAme.Trainer](https://github.com/DemoJameson/SmolAme.Trainer) is already included in the zip file)
 2. Run `Smol Ame.exe` will start the game with tas plugin now.
 3. Press `F2` show settings.
