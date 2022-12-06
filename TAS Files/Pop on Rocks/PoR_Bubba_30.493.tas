@@ -1,0 +1,84 @@
+Character 1
+Load 2
+   1
+
+#Dark Skip
+ 250,L
+ 420
+  50,L,U
+ 396
+ 210,R,U
+ 100,R
+ 115,R,U
+ 350
+#Bubba 1
+  50,U
+ 100,R,U
+ 200,R
+   1,R,U
+   1,R,D
+ 250,R
+ 180,R,U
+   1,D
+ 450
+#Layer 2 bSB skip
+  10,U
+ 136
+   1,L,U
+   1,L,U,D
+  24,U
+   1
+   1,U
+   1
+ 200,L,U
+  20,L
+#Layer 3
+   1,L,U
+   1,L,D
+ 178,L
+#Layer 3.5 why do you need to be an SB
+   1,L,U
+   1,L,U,D
+  50,L,U
+ 100,L
+  31
+#Layer 4 bSB skip
+   1,L,U
+   1,L,U,D
+  24,U
+   1,L
+ 168,L,U
+   1,R,D
+ 185,R
+#Bubba 2
+   1,D
+ 290
+   1,D
+ 100
+   3,R
+ 350
+#Lineup for Edge Bounce
+   8,R
+  50
+#Bubba 3 cycle save Maneuvre
+   1,U
+   1,D
+ 170,R
+   1,D
+ 174,R
+ 110
+ 100,R,U
+#Bubba 3
+   1,U
+   1,D
+ 190,R
+#Perfect Mom
+ 150
+  23,R
+   1,U
+   1,D
+ 107,R
+   1,D
+   3
+
+Time: 00:30.493(6099)
