@@ -87,8 +87,7 @@
     </Target>
 
     <Target Condition="'$(Configuration)' == 'Release'" Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Exec Command="rd /S /Q &quot;$(BuildsDir)&quot;" />
-        <Exec Command="del &quot;$(BuildsDir).zip&quot;" />
+        <Exec Command="rd /S /Q &quot;$(SolutionDir)Builds&quot;" />
 
         <Exec Command="xcopy &quot;$(SolutionDir)BepInEx_x86&quot; &quot;$(BuildsDir)\&quot; /E/H/C/I/Y" />
         <Exec Command="xcopy &quot;$(TargetDir)&quot; &quot;$(BuildsDir)\BepInEx\plugins\$(PackageId)&quot; /E/H/C/I/Y" />
