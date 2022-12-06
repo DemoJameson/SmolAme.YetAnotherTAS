@@ -52,7 +52,7 @@ internal class Program {
 
         if (GetLoadCommand(filePath) is { } loadCommand) {
             result.Add(loadCommand);
-            result.Add("1");
+            result.Add("   1");
             result.Add("");
         }
 
