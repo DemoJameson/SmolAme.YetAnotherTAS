@@ -9,7 +9,8 @@ namespace SmolAme.YetAnotherTAS.Components;
 [HarmonyPatch]
 public class SmolAmeGame : PluginComponent, IGame {
     public static SmolAmeGame Instance { get; private set; }
-    public static int FixedFrameRate => 200;
+    public static int FixedFrameRate = DefaultFixedFrameRate;
+    public static int DefaultFixedFrameRate => 200;
     public string CurrentTime => GameInfoHelper.FormatTime(MainScript.main.levelTime);
     public float FastForwardSpeed => FastForward.DefaultSpeed;
     public float SlowForwardSpeed => 0.1f;

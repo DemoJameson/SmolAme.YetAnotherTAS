@@ -68,6 +68,10 @@ Various commands exist to facilitate TAS playback.
 - A line beginning with `#` can be also be used as the starting point or ending point of a Read instruction.
 - You can comment highlighted text in TAS Studio by hitting `Ctrl+K`
 
+#### FrameRate
+- `FrameRate, integers greater than 0`
+- Set the game's FPS
+
 #### Seed
 - `Seed, any string`
 - Different seeds will produce different RNGs, you can use this command any time to change the subsequent RNGs, which only work on the current level
