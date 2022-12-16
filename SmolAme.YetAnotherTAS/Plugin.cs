@@ -30,7 +30,6 @@ public class Plugin : BaseUnityPlugin {
     private IEnumerator EndOfFrame() {
         yield return new WaitForEndOfFrame();
         Manager.Update();
-        Manager.SendStateToStudio();
         Hotkeys.AllowKeyboard = Application.isFocused || !CommunicationServer.Connected;
     }
 }

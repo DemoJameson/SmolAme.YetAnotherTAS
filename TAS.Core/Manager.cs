@@ -44,6 +44,7 @@ public static class Manager {
     }
 
     public static void Update() {
+        SendStateToStudio();
         LastStates = States;
         ExecuteMainThreadActions();
         Hotkeys.Update();
