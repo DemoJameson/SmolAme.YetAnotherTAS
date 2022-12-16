@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using SmolAme.YetAnotherTAS.Components.Helpers;
+using TAS;
 using TAS.Core;
 using TAS.Core.Input;
 using UnityEngine;
@@ -21,6 +22,7 @@ public class SmolAmeGame : PluginComponent, IGame {
 
     private void Awake() {
         Instance = this;
+        Manager.Init(this);
         HookHelper.SceneLoaded(SceneLoaded);
     }
 

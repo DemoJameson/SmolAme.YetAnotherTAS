@@ -1,8 +1,9 @@
 Character 1
 Load 7
-   1
 
+#Start
 #Dark Skip
+   2
  250,L
  400
   54,L,U
@@ -122,3 +123,7 @@ Load 7
  117,R
    1,U
    1,D
+   3
+
+Time: 00:34.828(6966)
+

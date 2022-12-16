@@ -1,7 +1,8 @@
 Character 11
 Load 6
-1
 
+#Start
+   2
   48,R
    1,R,U
   36,R
@@ -22,3 +23,6 @@ Load 6
  101,L
    1,L,U
    1,L,D
+   3
+
+Time: 00:09.860(1973)

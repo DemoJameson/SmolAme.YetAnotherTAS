@@ -1,9 +1,10 @@
-RecordCount: 248
+RecordCount: 249
 Character 1
 Load 2
-   1
 
+#Start
 #Dark Skip
+   2
  250,L
  400
  100,L,U

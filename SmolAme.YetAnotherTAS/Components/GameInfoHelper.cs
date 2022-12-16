@@ -14,7 +14,6 @@ public class GameInfoHelper : PluginComponent {
     private static ConfigEntry<int> decimalsConfig;
     
     private static Vector3? lastPlayerPosition;
-    private static string lastLevelName;
     private static string lastTime;
     private static string lastInfo;
     private static readonly List<string> infos = new();
@@ -26,7 +25,6 @@ public class GameInfoHelper : PluginComponent {
 
         HookHelper.ActiveSceneChanged(() => {
             lastPlayerPosition = null;
-            lastLevelName = null;
             lastTime = null;
             lastInfo = null;
         });
@@ -36,8 +34,7 @@ public class GameInfoHelper : PluginComponent {
         get {
             SmolAmeGame game = SmolAmeGame.Instance;
 
-            if (lastLevelName == CurrentSceneName && lastTime == game.CurrentTime) {
-                lastLevelName = CurrentSceneName;
+            if (lastTime == game.CurrentTime) {
                 return lastInfo;
             }
 

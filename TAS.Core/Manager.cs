@@ -178,8 +178,7 @@ public static class Manager {
         NextStates |= States.Disable;
     }
 
-    // Called on frame end e.g. Unity component.LateUpdate
-    public static void SendStateToStudio() {
+    private static void SendStateToStudio() {
         GameInfoMessage gameInfoMessage = new(
             Controller.Previous?.Line ?? -1,
             $"{Controller.CurrentFrameInInput}{Controller.Previous?.RepeatString ?? ""}",

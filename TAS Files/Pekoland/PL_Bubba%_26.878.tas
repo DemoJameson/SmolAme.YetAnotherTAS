@@ -1,7 +1,8 @@
 Character 1
 Load 4
-1
 
+#Start
+   2
   48,L
  126,L,U
    1,L,U,D
@@ -59,5 +60,6 @@ Load 4
   90,R
    1,R,U
    1,R,D
-  24,R
-   4
+   3
+
+Time: 00:26.878(5376)
