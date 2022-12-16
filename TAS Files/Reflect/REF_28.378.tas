@@ -1,0 +1,74 @@
+Load 13
+   1
+
+ 322,R
+   1,R,U
+  92,R
+ 147
+   1,R,U
+   1,R,D
+ 176,R
+   1,R,D
+ 207,R
+   1,R,D
+ 339,R
+   1,R,U
+   1,R,D
+ 172,R
+  61,R,U
+ 150,R
+  60
+   1,R,U
+   1,R,D
+ 178,R
+   1,R,D
+ 188,R
+   1,R,D
+  47,R
+ 264,R
+   1,U
+#M note: ame is still in the air fsr so I have to jump
+   1,D
+ 600,R
+   1,R,U
+ 146,R
+
+   1,U
+   1,D
+ 250
+  40,R
+  39
+   1,R,U
+   1,R,D
+ 183,R
+  87,R,U
+   1,R,D
+ 238,R
+   1,D
+ 275,R
+   1,D
+ 500
+#Ame needs position <91.020
+#When the glitch is happening
+#Ame is falling off of the
+#platform and does an insta
+  25,R
+   1,R,U
+   1,D
+#If left was constantly held
+#Ame would touch the side of
+#The platform, this means no
+#Upsidedown fun.
+ 200,L
+   1,D
+  64
+   1,R,U
+ 165
+  92,R
+   1,R,U
+   1,R,D
+  25,R
+   1,R,U
+ 313,R
+   1,U
+   1,D
