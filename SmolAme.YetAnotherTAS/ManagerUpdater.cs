@@ -47,9 +47,14 @@ public class ManagerUpdater : PluginComponent {
         for (int index = 0; index < playerLoop.subSystemList.Length; index++) {
             PlayerLoopSystem subSystem = playerLoop.subSystemList[index];
             if (subSystem.type == typeof(PreUpdate)) {
-                subSystem.subSystemList = new[] {managerUpdateSystem}.Union(subSystem.subSystemList).ToArray();
-                playerLoop.subSystemList[index] = subSystem;
-                PlayerLoop.SetPlayerLoop(playerLoop);
+                List<PlayerLoopSystem> preUpdates = subSystem.subSystemList.ToList();
+                if (preUpdates.FindIndex(0, system => system.type == typeof(PreUpdate.NewInputUpdate)) is var newInput and >= 0) {
+                    preUpdates.Insert(newInput, managerUpdateSystem);
+                    subSystem.subSystemList = preUpdates.ToArray();
+                    playerLoop.subSystemList[index] = subSystem;
+                    PlayerLoop.SetPlayerLoop(playerLoop);
+                }
+       
                 break;
             }
         }
