@@ -81,6 +81,11 @@ Various commands exist to facilitate TAS playback.
 - `Load, SceneName/ScendBuildIndex, PositionX, PositionY`
 - Loads the specified scene.
 
+#### Teleport
+- `Teleport, positionX, positionY`
+- `Teleport, positionX, positionY, speedX, speedY`
+- Teleport to the specified position and speed.
+
 #### Character
 - `Character, 1~12`
 
