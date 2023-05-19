@@ -18,8 +18,4 @@ public class VersionText : PluginComponent {
     private void OnDestroy() {
         HUDScript.HUD.versionText.text = origVersion;
     }
-
-    public static int CurrentVersion() {
-        return int.Parse(Regex.Split(origVersion, @"\D+")[5]);
-    }
 }

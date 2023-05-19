@@ -7,6 +7,7 @@ using SmolAme.YetAnotherTAS.Components.Helpers;
 using TAS;
 using TAS.Core.Input.Commands;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SmolAme.YetAnotherTAS.Commands;
 
@@ -34,27 +35,8 @@ public class LoadCommand : PluginComponent {
         if (Time.timeScale == 0) {
             Time.timeScale = 1f;
         }
-        string sceneName = args[0];
-        int currentVersion = VersionText.CurrentVersion();
 
-        if (currentVersion >= 210125 && currentVersion <= 210128) {
-            LoadLevel(args[0], 2);
-        } else if (currentVersion > 210128 && currentVersion <= 210204) {
-            LoadLevel(args[0], 3);
-        } else if (currentVersion > 210204 && currentVersion <= 210218) {
-            LoadLevel(args[0], 5);
-        } else if (currentVersion > 210218 && currentVersion <= 210306) {
-            LoadLevel(args[0], 6);
-        } else if (currentVersion > 210306 && currentVersion <= 210325) {
-            LoadLevel(args[0], 7);
-        } else if (currentVersion > 210325 && currentVersion <= 210418) {
-            LoadLevel(args[0], 9);
-        } else if (currentVersion > 210418 && currentVersion <= 210612) {
-            LoadLevel(args[0], 11);
-        } else {
-            LoadLevel(args[0], 13);
-        }
-
+        LoadLevel(args[0], SceneManager.sceneCountInBuildSettings);
     }
 
     [HarmonyPatch(typeof(PlayerScript), nameof(PlayerScript.Respawn), new Type[] { })]

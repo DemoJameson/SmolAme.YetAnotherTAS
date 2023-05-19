@@ -27,30 +27,11 @@ public class CharacterCommand {
     [TasCommand("Character", LegalInMainGame = false)]
     private static void Character(string[] args) {
 
-        int currentVersion = VersionText.CurrentVersion();
-
         if (args.IsEmpty()) {
             return;
         }
 
-        if (currentVersion >= 210125 && currentVersion <= 210218) {
-            SetNumCharacters(args[0], 1);
-        }
-        else if (currentVersion > 210218 && currentVersion <= 210325) {
-            SetNumCharacters(args[0], 2);
-        }
-        else if (currentVersion > 210325 && currentVersion <= 210418) {
-            SetNumCharacters(args[0], 7);
-        }
-        else if (currentVersion > 210418 && currentVersion <= 210530) {
-            SetNumCharacters(args[0], 9);
-        }
-        else if (currentVersion > 210530 && currentVersion <= 210612) {
-            SetNumCharacters(args[0], 10);
-        }
-        else {
-            SetNumCharacters(args[0], 12);
-        }
+        SetNumCharacters(args[0], PlayerScript.player.characterPacks.Count);
     }
 
     private static void SetCharacter(int index) {
