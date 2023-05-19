@@ -1,4 +1,6 @@
-﻿namespace SmolAme.YetAnotherTAS.Components; 
+﻿using System.Text.RegularExpressions;
+
+namespace SmolAme.YetAnotherTAS.Components; 
 
 public class VersionText : PluginComponent {
     private static string origVersion;
@@ -15,5 +17,9 @@ public class VersionText : PluginComponent {
 
     private void OnDestroy() {
         HUDScript.HUD.versionText.text = origVersion;
+    }
+
+    public static int CurrentVersion() {
+        return int.Parse(Regex.Split(origVersion, @"\D+")[5]);
     }
 }
