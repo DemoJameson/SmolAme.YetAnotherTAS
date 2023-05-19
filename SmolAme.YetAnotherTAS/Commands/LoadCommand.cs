@@ -55,7 +55,7 @@ public class LoadCommand : PluginComponent {
 
     private static void LoadLevel(string sceneName,int numLevels) {
         if (int.TryParse(sceneName, out int index)) {
-            index = Mathf.Clamp(index, 1, numLevels) - 1;
+            index = Mathf.Clamp(index, 0, numLevels - 1);
             LevelLoader.loader.LoadLevel(index);
         } else {
             LevelLoader.loader.LoadLevel(sceneName);
