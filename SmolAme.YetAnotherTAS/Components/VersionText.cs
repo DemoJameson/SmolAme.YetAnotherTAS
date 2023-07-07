@@ -1,10 +1,8 @@
-﻿using System.Text.RegularExpressions;
-
-namespace SmolAme.YetAnotherTAS.Components; 
+﻿namespace SmolAme.YetAnotherTAS.Components;
 
 public class VersionText : PluginComponent {
     private static string origVersion;
-    
+
     private void Update() {
         if (!HUDScript.HUD) {
             return;

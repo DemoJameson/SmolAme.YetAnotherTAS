@@ -1,6 +1,4 @@
-﻿using HarmonyLib;
-using SmolAme.YetAnotherTAS.Components;
-using TAS.Core.Input.Commands;
+﻿using TAS.Core.Input.Commands;
 using TAS.Core.Utils;
 using UnityEngine;
 
@@ -26,19 +24,15 @@ public class CharacterCommand {
 
     [TasCommand("Character", LegalInMainGame = false)]
     private static void Character(string[] args) {
-
-        //if (VersionText.Version() <= 210218) {
-        //    return;
-        //    }
         if (args.IsEmpty()) {
             return;
         }
+
         if (int.TryParse(args[0], out int index) && PlayerScript.player.characterPacks != null) {
             index = Mathf.Clamp(index, 1, PlayerScript.player.characterPacks.Count) - 1;
             MainScript.currentCharacter = index;
             PlayerPrefs.SetInt("character", MainScript.currentCharacter);
             PlayerScript.player.currentCharacter = MainScript.currentCharacter;
         }
-
     }
 }

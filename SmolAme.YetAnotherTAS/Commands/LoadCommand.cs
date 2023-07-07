@@ -36,7 +36,13 @@ public class LoadCommand : PluginComponent {
             Time.timeScale = 1f;
         }
 
-        LoadLevel(args[0], SceneManager.sceneCountInBuildSettings);
+        string sceneName = args[0];
+        if (int.TryParse(sceneName, out int index)) {
+            index = Mathf.Clamp(index, 0, SceneManager.sceneCountInBuildSettings - 1);
+            LevelLoader.loader.LoadLevel(index);
+        } else {
+            LevelLoader.loader.LoadLevel(sceneName);
+        }
     }
 
     [HarmonyPatch(typeof(PlayerScript), nameof(PlayerScript.Respawn), new Type[] { })]
@@ -50,15 +56,6 @@ public class LoadCommand : PluginComponent {
                     position = null;
                 }
             });
-        }
-    }
-
-    private static void LoadLevel(string sceneName,int numLevels) {
-        if (int.TryParse(sceneName, out int index)) {
-            index = Mathf.Clamp(index, 0, numLevels - 1);
-            LevelLoader.loader.LoadLevel(index);
-        } else {
-            LevelLoader.loader.LoadLevel(sceneName);
         }
     }
 }

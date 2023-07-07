@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 namespace SmolTAS.Converter;
 
 internal class Program {
-    private static readonly Regex ActionRegex = new(@"^([WSAD]+)(.*)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    private static readonly Regex ActionRegex = new(@"^([WSADJG]+)(.*)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
     private static readonly Regex CleanComment = new(@"^\((.+)\)$", RegexOptions.Compiled);
 
     public static void Main(string[] args) {
@@ -153,8 +153,7 @@ internal class Program {
         comment = "";
 
 
-        if (ActionRegex.IsMatch(line)) {
-            Match match = ActionRegex.Match(line);
+        if (ActionRegex.Match(line) is {Success: true} match) {
             List<char> actions = match.Groups[1].Value.ToUpper().ToArray().Select(c => c switch {
                 'W' => 'U',
                 'S' => 'D',
@@ -163,7 +162,7 @@ internal class Program {
                 'J' => 'U',
                 'G' => 'D',
                 _ => '\0',
-            }).ToList();
+            }).Distinct().ToList();
             actions.Sort(comparison);
             action = string.Join(",", actions);
             comment = CleanComment.Replace(match.Groups[2].Value.Trim(), "$1");
