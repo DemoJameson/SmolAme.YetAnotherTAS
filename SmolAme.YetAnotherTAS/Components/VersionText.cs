@@ -1,4 +1,6 @@
-﻿namespace SmolAme.YetAnotherTAS.Components; 
+﻿using System.Text.RegularExpressions;
+
+namespace SmolAme.YetAnotherTAS.Components; 
 
 public class VersionText : PluginComponent {
     private static string origVersion;

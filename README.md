@@ -88,6 +88,7 @@ Various commands exist to facilitate TAS playback.
 
 #### Character
 - `Character, 1~12`
+- Only works for smol ame v210305.1 and above
 
 #### RecordCount
 - e.g. `RecordCount: 1`

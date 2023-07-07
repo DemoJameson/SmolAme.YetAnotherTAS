@@ -160,6 +160,8 @@ internal class Program {
                 'S' => 'D',
                 'A' => 'L',
                 'D' => 'R',
+                'J' => 'U',
+                'G' => 'D',
                 _ => '\0',
             }).ToList();
             actions.Sort(comparison);
